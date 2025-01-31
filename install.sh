@@ -18,7 +18,7 @@ _success() {
 
 
 install_xcode-select() {
-	_process"→ Installing Xcode command-line tools"   
+	_process "→ Installing Xcode command-line tools"   
 	xcode-select --install
 	xcode-select -v
 	[[ $? ]] \
@@ -27,7 +27,7 @@ install_xcode-select() {
 
 
 install_homebrew() {
-	_process"→ Installing Homebrew"
+	_process "→ Installing Homebrew"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/ed/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -40,13 +40,13 @@ install_homebrew() {
 
 
 install_misc() {
-	_process"→ Installing brews"
+	_process "→ Installing brews"
 	brew bundle --file ~/.dotfiles/etc/Brewfile
 	_success "Installed brews"
-	_process"→ Installing OhMyZsh"
+	_process "→ Installing OhMyZsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	_success "Installed OhMyZsh"
-	_process"→ Installing Zsh plugins"
+	_process "→ Installing Zsh plugins"
 	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

@@ -2,7 +2,7 @@
 LOG="${HOME}/Library/Logs/dotfiles.log"
 GITHUB_USER=scrapp08
 GITHUB_REPO=dotfiles
-DIR="~/.dotfiles"
+DIR=".dotfiles"
 
 
 _process() {

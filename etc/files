@@ -1,0 +1,7 @@
+configs/gitconfig .gitconfig
+configs/gitignore .gitignore
+configs/nvim/ .config/nvim
+configs/p10k.zsh .p10k.zsh
+configs/vimrc .vimrc
+configs/yt-dlp/ .config/yt-dlp
+configs/zshrc .zshrc

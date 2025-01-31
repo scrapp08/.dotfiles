@@ -17,6 +17,19 @@ _success() {
 }
 
 
+setup() {
+	xcode-select --install
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/ed/.zprofile
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+	brew bundle --file ~/.dotfiles/etc/Brewfile
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+}
+
+
 download_dotfiles() {
   _process "→ Creating directory at ${DIR} and setting permissions"
   mkdir -p "${DIR}"
@@ -80,6 +93,7 @@ link_dotfiles() {
 
 
 install() {
+  setup
   download_dotfiles
   link_dotfiles
 }

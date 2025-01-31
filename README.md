@@ -19,12 +19,12 @@ git clone git@github.com:scrapp08/dotfiles.git ~/.dotfiles
 3. Create symlinks in the Home directory to the real files in the repo.
 
 ```zsh
-ln -s ~/.dotfiles/zshrc ~/.zshrc
-ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/p10k.zsh ~/.p10k.zsh
-ln -s ~/.dotfiles/yt-dlp ~/.config/yt-dlp
-ln -s ~/.dotfiles/vimrc ~/.vimrc
-ln -s ~/.dotfiles/nvim/ ~/.config/nvim
+ln -s ~/.dotfiles/configs/zshrc ~/.zshrc
+ln -s ~/.dotfiles/configs/gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/configs/p10k.zsh ~/.p10k.zsh
+ln -s ~/.dotfiles/configs/yt-dlp ~/.config/yt-dlp
+ln -s ~/.dotfiles/configs/vimrc ~/.vimrc
+ln -s ~/.dotfiles/configs/nvim/ ~/.config/nvim
 ```
 
 4. Install Homebrew, followed by the software listed in the Brewfile.

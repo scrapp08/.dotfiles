@@ -88,10 +88,10 @@ link_dotfiles() {
 
 install() {
   install_xcode-select
-  install_homebrew  
-  install_misc
   download_dotfiles
   link_dotfiles
+  install_homebrew  
+  install_misc
 }
 
 install

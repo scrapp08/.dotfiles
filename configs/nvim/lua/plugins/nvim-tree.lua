@@ -14,14 +14,13 @@ return {
 				width = 35,
 				relativenumber = true,
 				side = "right",
+				preserve_window_proportions = true,
 			},
 			renderer = {
-				indent_markers = {
-					enable = true,
-				},
+				highlight_git = true,
+				indent_markers = { enable = true },
 				icons = {
 					git_placement = "signcolumn",
-					web_devicons = { folder = { enable = true } },
 					glyphs = { folder = {
 						arrow_closed = " ",
 						arrow_open = " ",

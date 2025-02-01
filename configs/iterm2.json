@@ -72,7 +72,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.26474356651306152
   },
-  "Blinking Cursor" : true,
+  "Blinking Cursor" : false,
   "Selected Text Color (Light)" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -353,7 +353,7 @@
     "Green Component" : 0.14117647707462311
   },
   "Name" : "Default",
-  "Transparency" : 0.24520699637276766,
+  "Transparency" : 0.15034092494419624,
   "Horizontal Spacing" : 1,
   "Cursor Color (Dark)" : {
     "Red Component" : 0.99997633695602417,
@@ -490,7 +490,7 @@
   "Tags" : [
 
   ],
-  "Blur Radius" : 50,
+  "Blur Radius" : 49.910873325892851,
   "Ansi 6 Color (Light)" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -521,7 +521,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.59215688705444336
   },
-  "Normal Font" : "MesloLGLNFM-Regular 17",
+  "Normal Font" : "MesloLGS-NF-Regular 18",
   "Unlimited Scrollback" : false,
   "Ansi 12 Color (Light)" : {
     "Red Component" : 0.65349078178405762,
@@ -567,6 +567,7 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
+            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.86000317335128784,
               "Color Space" : "P3",
@@ -574,13 +575,12 @@
               "Alpha Component" : 1,
               "Green Component" : 0.6414334774017334
             },
-            "base: compression resistance" : 1,
             "format" : "M\/dd h:mm"
           },
           "layout advanced configuration dictionary value" : {
+            "remove empty components" : false,
             "auto-rainbow style" : 0,
-            "algorithm" : 0,
-            "remove empty components" : false
+            "algorithm" : 0
           }
         }
       },

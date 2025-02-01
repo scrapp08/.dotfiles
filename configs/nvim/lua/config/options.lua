@@ -14,15 +14,14 @@ opt.matchtime = 2
 opt.scrolloff = 8
 opt.updatetime = 50
 
+
 ----------------------------------------
 ---				Visual				 ---
 ----------------------------------------
 
-opt.termguicolors = "yes" -- true colour terminal
+opt.termguicolors = true -- true colour terminal
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-
-opt.syntax = true -- syntax highlighting
 
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- show absolute line number on cursor line
@@ -34,7 +33,6 @@ opt.showmode = true
 -- tabs & indentation
 opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
 opt.shiftwidth = 4 -- 4 spaces for indent width
-opt.expandtab = false -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
@@ -56,4 +54,3 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.swapfile = false
 opt.backup = false
-

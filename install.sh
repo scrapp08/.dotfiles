@@ -75,6 +75,9 @@ install_misc() {
 	sh -c "$(git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions)"
 	sh -c "$(git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting)"
 	_success "Installed Zsh plugins"
+	_process "==> Installing Meslo Nerd Font"
+	sh -c "$(brew install font-meslo-lg-nerd-font)"
+	_success "Installed Meslo NF"
 }
 
 

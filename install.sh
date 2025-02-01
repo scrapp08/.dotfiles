@@ -2,7 +2,7 @@
 LOG="${HOME}/Library/Logs/dotfiles.log"
 GITHUB_USER=scrapp08
 GITHUB_REPO=dotfiles
-DIR="~/.dotfiles"
+DIR=".dotfiles"
 
 
 _process() {
@@ -56,21 +56,21 @@ install_misc() {
 
 download_dotfiles() {
   _process "→ Creating directory at ${DIR} and setting permissions"
-  mkdir -p "${DIR}"
+  mkdir -p "$HOME/${DIR}"
 
   _process "→ Downloading repository to /tmp directory"
   curl -#fLo /tmp/${GITHUB_REPO}.tar.gz "https://github.com/${GITHUB_USER}/${GITHUB_REPO}/tarball/main"
 
-  _process "→ Extracting files to ${DIR}"
-  tar -zxf /tmp/${GITHUB_REPO}.tar.gz --strip-components 1 -C "${DIR}"
+  _process "→ Extracting files to $HOME/${DIR}"
+  tar -zxf /tmp/${GITHUB_REPO}.tar.gz --strip-components 1 -C "$HOME/${DIR}"
 
   _process "→ Removing tarball from /tmp directory"
   rm -rf /tmp/${GITHUB_REPO}.tar.gz
 
-  [[ $? ]] && _success "${DIR} created, repository downloaded and extracted"
+  [[ $? ]] && _success "$HOME/${DIR} created, repository downloaded and extracted"
 
   # Change to the dotfiles directory
-  cd "${DIR}"
+  cd "$HOME/${DIR}"
 }
 
 

@@ -40,10 +40,10 @@ download_dotfiles() {
 link_dotfiles() {
 	_process "→ Sym-linking dotfiles"
 	ln -s ~/.dotfiles/configs/gitconfig ~/.gitconfig
-	ln -s ~/.dotfiles/configs/nvim/ ~/.config/nvim/
+	ln -s ~/.dotfiles/configs/nvim/ ~/.config/nvim
 	ln -s ~/.dotfiles/configs/p10k.zsh ~/.p10k.zsh
 	ln -s ~/.dotfiles/configs/vimrc ~/.vimrc
-	ln -s ~/.dotfiles/configs/yt-dlp/ ~/.config/yt-dlp/
+	ln -s ~/.dotfiles/configs/yt-dlp/ ~/.config/yt-dlp
 	ln -s ~/.dotfiles/configs/zshrc ~/.zshrc
 	_success "Linked Dotfiles"
 }

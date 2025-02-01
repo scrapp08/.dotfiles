@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 LOG="${HOME}/Library/Logs/dotfiles.log"
 GITHUB_USER=scrapp08
-GITHUB_REPO=dotfiles
+GITHUB_REPO=.dotfiles
 DIR=".dotfiles"
 
 
@@ -26,6 +26,29 @@ install_xcode-select() {
 }
 
 
+download_dotfiles() {
+	_process "→ Downloading dotfiles"
+	cd "$HOME"
+	git clone https://github.com/scrapp08/.dotfiles.git
+    [[ $? ]] && _success "$HOME/${DIR} created, repository downloaded"
+
+  # Change to the dotfiles directory
+  cd "$HOME/${DIR}"
+}
+
+
+link_dotfiles() {
+	_process "→ Sym-linking dotfiles"
+	ln -s ~/.dotfiles/configs/gitconfig ~/.gitconfig
+	ln -s ~/.dotfiles/configs/nvim/ ~/.config/nvim
+	ln -s ~/.dotfiles/configs/p10k.zsh ~/.p10k.zsh
+	ln -s ~/.dotfiles/configs/vimrc ~/.vimrc
+	ln -s ~/.dotfiles/configs/yt-dlp/ ~/.config/yt-dlp
+	ln -s ~/.dotfiles/configs/zshrc ~/.zshrc
+	_success "Linked Dotfiles"
+}
+
+
 install_homebrew() {
 	_process "→ Installing Homebrew"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -44,45 +67,14 @@ install_misc() {
 	brew bundle --file ~/.dotfiles/etc/Brewfile
 	_success "Installed brews"
 	_process "→ Installing OhMyZsh"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 	_success "Installed OhMyZsh"
 	_process "→ Installing Zsh plugins"
 	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+	_success "Installed p10k"
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 	_success "Installed Zsh plugins"
-}
-
-
-download_dotfiles() {
-  _process "→ Creating directory at ${DIR} and setting permissions"
-  mkdir -p "$HOME/${DIR}"
-
-  _process "→ Downloading repository to /tmp directory"
-  curl -#fLo /tmp/${GITHUB_REPO}.tar.gz "https://github.com/${GITHUB_USER}/${GITHUB_REPO}/tarball/main"
-
-  _process "→ Extracting files to $HOME/${DIR}"
-  tar -zxf /tmp/${GITHUB_REPO}.tar.gz --strip-components 1 -C "$HOME/${DIR}"
-
-  _process "→ Removing tarball from /tmp directory"
-  rm -rf /tmp/${GITHUB_REPO}.tar.gz
-
-  [[ $? ]] && _success "$HOME/${DIR} created, repository downloaded and extracted"
-
-  # Change to the dotfiles directory
-  cd "$HOME/${DIR}"
-}
-
-
-link_dotfiles() {
-	_process "→ Sym-linking dotfiles"
-	ln -s ~/.dotfiles/configs/gitconfig ~/.gitconfig
-	ln -s ~/.dotfiles/configs/nvim/ ~/.config/nvim
-	ln -s ~/.dotfiles/configs/p10k.zsh ~/.p10k.zsh
-	ln -s ~/.dotfiles/configs/vimrc ~/.vimrc
-	ln -s ~/.dotfiles/configs/yt-dlp/ ~/.config/yt-dlp
-	ln -s ~/.dotfiles/configs/zshrc ~/.zshrc
-	_success "Linked Dotfiles"
 }
 
 

@@ -1,51 +1,93 @@
-nnoremap <SPACE> <Nop>
-let mapleader=" "
-
-" General
-set nocompatible
-set backspace=indent,eol,start
-set clipboard=unnamedplus
+"""""""""""""""""""""""""
+"		Settings		"
+"""""""""""""""""""""""""
 
 " Visual
-set bg=light
-syntax on
-set relativenumber
-set number
-set ruler
-set showmode
-set showcmd
-set showmatch
-set colorcolumn=80
-set matchtime=2
+set background=light " use light mode colours
+syntax on " turn on syntax highlighting
+set number " enable numberline
+set relativenumber " enable relative number in numberline
+set ruler " enables co-ordinates in statusline
+set showmatch " show matching bracket
+set matchtime=2 " faster time to show matching bracket
+set colorcolumn=80 " add ruler to file to guide read-ability
+set scrolloff=8 " always have 8 lines leading scroll
 
 " Tabs & Indentation
-set tabstop=4
-set shiftwidth=4
+set tabstop=4 " tab counts for 4 spaces
+set shiftwidth=4 " number of spaces for each step of autoindent
+set autoindent " copy indent from current line when starting new line
+
+set nowrap " disable line wrapping
 
 " Search settings
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
+set ignorecase " ignore case when searching
+set hlsearch " highlight search results
+set smartcase " override ignorecase if search contains uppercase letters
+set incsearch " show search results whilst typing
 
 " Backup & Undo
-set noswapfile
-set nobackup
+set noswapfile " do not create a swapfile of changes
+set nobackup " do not make backup before overwriting file
 
-set undodir=~/.vim/undo-dir
-set undofile
+set undofile " save undo history to a file
+set undodir=~/.vim/undodir " store undo files in one place
+
+" Windows
+set splitright " split vertical window to the right
+set splitbelow " split horizontal window to the bottom
+
+" Commands
+set showcmd " shows command as being typed into console
+set history=100 " store a history of up to 100 commands
 
 " Misc
-set history=200
-set display=truncate
-filetype plugin indent on
-set lazyredraw
-set mouse=a
-set scrolloff=8
-set updatetime=50
+let g:netrw_liststyle=3 " set netrw to tree view
+filetype plugin indent on " load plugin and indent files for specific file types
+set mouse=a " enable use of mouse
+set updatetime=50 " better performance in determining when cursor no longer moving
 
-" Remaps
-nnoremap <Leader>o o<Esc>
-nnoremap <Leader>O O<Esc>
-inoremap jh <Esc>
+"""""""""""""""""""""""""
+"		 Remaps			"
+"""""""""""""""""""""""""
 
+" General
+nnoremap <SPACE> <Nop>| " clear SPACE key binding
+let mapleader=" "| " bind SPACE to leader
+
+inoremap jk <Esc>| " jk shortcut for ESC
+
+nnoremap Q <Nop>| " unbind command mode
+
+" Movement
+nnoremap <C-d> <C-d>zz| " keep cursor at start of line when jumping down
+nnoremap <C-u> <C-u>zz| " keep cursor at start of line when jumping up
+
+vnoremap J :m '>+1<CR>gv=gv| " move selection up a line
+vnoremap K :m '<-2<CR>gv=gv| " move selection down a line
+
+" Search
+nnoremap n nzzzv| " keep next search term in middle of screen
+nnoremap N Nzzzv| " keep previous search term in middle of screen
+nnoremap <Leader>nh :nohl<CR>| " clear search highlights
+
+" Copy & Paste
+xnoremap <Leader>p "_dP| " paste over selection whilst maintaining paste buffer
+
+nnoremap <Leader>y "+y| " yank to system clipboard
+vnoremap <Leader>y "+y| " yank to system clipboard
+nnoremap <Leader>Y "+Y| " yank end of line to system clipboard
+
+" Misc
+nnoremap <Leader>d "_d| " delete to void register
+vnoremap <Leader>d "_d| " delete to void register
+
+nnoremap J mzJ`z| " keep cursor at start of line when joining lines
+
+nnoremap <Leader>o o<Esc>| " create new line below without going into insert mode
+nnoremap <Leader>O O<Esc>| " create new line above without going into insert mode
+
+nnoremap <Leader>+ <C-a>| " increment number
+nnoremap <Leader>- <C-x>| " decrement number
+
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>| " replace word under cursor

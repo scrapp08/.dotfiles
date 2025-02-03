@@ -1,55 +1,44 @@
-vim.cmd("let g:netrw_liststyle = 3")
-
 local opt = vim.opt -- for conciseness
 
-----------------------------------------
----				General				 ---
-----------------------------------------
-
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
-
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
+--- Visual
+opt.background = "dark"
+opt.number = true
+opt.relativenumber = true
+opt.ruler = true
+opt.showmatch = true
 opt.matchtime = 2
+opt.colorcolumn = "80"
 opt.scrolloff = 8
-opt.updatetime = 50
 
-----------------------------------------
----				Visual				 ---
-----------------------------------------
+--- Tabs & Indentation
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.autoindent = true
 
-opt.termguicolors = true -- true colour terminal
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.wrap = false
 
-opt.relativenumber = true -- show relative line numbers
-opt.number = true -- show absolute line number on cursor line
-opt.cursorline = true -- highlight the current cursor line
-
-opt.ruler = true -- add ruler
-opt.showmode = true
-
--- tabs & indentation
-opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
-opt.shiftwidth = 4 -- 4 spaces for indent width
-opt.autoindent = true -- copy indent from current line when starting new one
-
--- line wrapping
-opt.wrap = false -- disable line wrapping
-
--- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+--- Search
+opt.ignorecase = true
 opt.hlsearch = true
+opt.smartcase = true
 opt.incsearch = true
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
-
-----------------------------------------
----		  	Backup & Undo	     	 ---
-----------------------------------------
-
+--- Backup & Undo
 opt.swapfile = false
 opt.backup = false
+
+opt.undofile = true
+opt.undodir = "/Users/edporter/.vim/undodir"
+
+--- Windows
+opt.splitright = true
+opt.splitbelow = true
+
+--- Commands
+opt.showcmd = true
+opt.history = 100
+
+--- Misc
+vim.cmd("let g:netrw_liststyle = 3")
+opt.mouse = "a"
+opt.updatetime = 50

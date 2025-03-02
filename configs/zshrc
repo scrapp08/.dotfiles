@@ -58,7 +58,7 @@ alias speedtest="speedtest-cli"
 alias pyserver="python3 -m http.server"
 alias restart="shutdown -r now"
 alias flactom4a="ffmpeg -i input.flac -c:v copy -c:a alac output.m4a"
-alias icloud="cd Library/Mobile\ Documents/com\~apple\~CloudDocs"
+alias protondrive="cd Library/CloudStorage/ProtonDrive-edporter08@protonmail.ch-folder"
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
